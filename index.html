@@ -8,6 +8,52 @@
         <script src="./index.js" rel="JS" defer></script>
     </head>
     <body>
-        <canvas id="myCanvas" width="200" height="100"></canvas>
+        <div id="controlDiv">
+            <div id="sizeDiv" class="controlItm">
+                <p id="sizeTxt">Size: 5</p>
+                <div id="sizeDisplay"></div>
+                <div class="cBtnDiv">
+                <button class="sBtn cBtn plus">+</button>
+                <button class="sBtn cBtn minus">-</button>
+                </div>
+
+            </div>
+
+            <div id="colourDiv" class="controlItm">
+                <p id="colourTxt">Change Colour</p>
+                <div id="colourDisplay"></div>
+
+                <div id="colourControlsDiv">
+                     <p>Red: 0</p>
+                <div class="cBtnDiv">
+                     <button class="rBtn cBtn plus">+</button>
+                     <button class="rBtn cBtn minus">-</button>
+                </div>
+
+
+                     <p>Green: 0</p>
+                <div class="cBtnDiv">
+                     <button class="gBtn cBtn plus">+</button>
+                     <button class="gBtn cBtn minus">-</button>
+                </div>
+
+
+                     <p>Blue: 0</p>
+                <div class="cBtnDiv">
+                     <button class="bBtn cBtn plus">+</button>
+                     <button class="bBtn cBtn minus">-</button>
+                </div>
+
+                </div>
+               
+            </div>
+            <div id="clearDiv" class="controlItm">
+                <button id="clearCanvasBtn" class="eBtn">Clear Canvas</button>
+            </div>
+            <div id="eraserDiv" class="controlItm">
+                <button id="eraserBtn" class="eBtn">Eraser</button>
+            </div>
+        </div>
+        <canvas id="myCanvas"></canvas>
     </body>
 </html>
