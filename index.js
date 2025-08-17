@@ -92,3 +92,31 @@ function  getTouchPos(canvas, evt) {
     
 }
 
+
+
+
+
+
+// Open/close
+const controlDiv = document.getElementById("controlDiv")
+const openBtn = document.getElementById("openControlBtn")
+openBtn.addEventListener("click",()=>{
+    if(controlDiv.classList.contains("close")){
+        controlDiv.classList.replace("close","open")
+    }else{
+        controlDiv.classList.add("open")
+    }
+    
+})
+
+const closeBtn = document.getElementById("backArrow")
+closeBtn.addEventListener("click",()=>{
+    if(controlDiv.classList.contains("open")){
+        controlDiv.classList.replace("open","close")
+    }else{
+        controlDiv.classList.add("close")
+    }
+    
+})
+
+
