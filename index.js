@@ -6,7 +6,10 @@ ctx.fillStyle = "red";
 
 let xPos = 0
 let yPos = 0
-let size = 2
+let size = 5
+let red = 0
+let green = 0
+let blue = 0
 
 canvas.addEventListener("mousedown",(e)=>{
   drawFun(e)
@@ -49,7 +52,8 @@ const drawFun = (e)=>{
 
     let ret = getMousePos(canvas,e)
 
-    ctx.fillRect(xPos, yPos, size, size);
+    ctx.fillRect(xPos, yPos, size, size/2);
+    console.log(size)
 }
 
 const drawTouchFun = (e)=>{
@@ -57,7 +61,7 @@ const drawTouchFun = (e)=>{
     
     let ret = getTouchPos(canvas,e)
 
-    ctx.fillRect(xPos, yPos, size, size);
+    ctx.fillRect(xPos, yPos, size, size/2);
 }
 
 function  getMousePos(canvas, evt) {
@@ -119,4 +123,40 @@ closeBtn.addEventListener("click",()=>{
     
 })
 
+
+// Size control
+const sizeBtns = document.querySelectorAll(".sBtn")
+const sizeTxt = document.getElementById("sizeTxt")
+const sizeDisplay = document.getElementById("sizeDisplay")
+sizeBtns.forEach((e)=>{
+    e.addEventListener("click",()=>{
+    if(e.textContent=="+"){
+        size+=1
+
+    }else{
+        size-=1
+    }
+    sizeTxt.textContent=`Size: ${size}`;
+    sizeDisplay.style.width = `${size}px`;
+    sizeDisplay.style.height = `${size}px`;
+    })
+
+})
+
+
+// Colour changing
+
+const colBtns = document.querySelectorAll(".colBtn")
+const colourDisplay = document.getElementById("colourDisplay")
+
+colBtns.forEach((e)=>{
+    e.addEventListener("click",()=>{
+        switch(true){
+            case e.classList.contains("rBtn"):
+                if(e.textContent=="+"){
+                    red+=
+                }
+        }
+    })
+})
 
