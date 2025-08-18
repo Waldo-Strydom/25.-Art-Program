@@ -181,7 +181,31 @@ colBtns.forEach((e)=>{
 
         })
 
+colBtns.forEach((e)=>{
+    e.addEventListener("touchstart",()=>{
+        let colPressed = true
+        console.log("mouseDown")
+                 updateColNum(e)
+        console.log()
+       
+    
+    e.addEventListener("touchend",()=>{
+            console.log("mouseup")
+            colPressed=false
+            clearInterval(addCol)
+        })
+        
+        if(colPressed){
+            var addCol = setInterval(()=>{
+                updateColNum(e)
 
+
+            },100)
+            
+        }
+        })
+
+        })
 
 const updateColNum = (e)=>{
         switch(true){
