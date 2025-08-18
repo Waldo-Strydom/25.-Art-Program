@@ -2,7 +2,7 @@
 const canvas = document.getElementById("myCanvas");
 const ctx = canvas.getContext("2d");
 
-ctx.fillStyle = "red";
+
 
 let xPos = 0
 let yPos = 0
@@ -10,6 +10,8 @@ let size = 5
 let red = 0
 let green = 0
 let blue = 0
+
+ctx.fillStyle = `rgb(${red},${green},${blue})`;
 
 canvas.addEventListener("mousedown",(e)=>{
   drawFun(e)
@@ -149,14 +151,73 @@ sizeBtns.forEach((e)=>{
 const colBtns = document.querySelectorAll(".colBtn")
 const colourDisplay = document.getElementById("colourDisplay")
 
+const rTxt = document.getElementById("rTxt")
+const gTxt = document.getElementById("gTxt")
+const bTxt = document.getElementById("bTxt")
+
 colBtns.forEach((e)=>{
-    e.addEventListener("click",()=>{
+    e.addEventListener("mousedown",()=>{
+        let colPressed = true
+        console.log("mouseDown")
+                 updateColNum(e)
+        console.log()
+       
+    
+                        e.addEventListener("mouseup",()=>{
+            console.log("mouseup")
+            colPressed=false
+            clearInterval(addCol)
+        })
+        
+        if(colPressed){
+            var addCol = setInterval(()=>{
+                updateColNum(e)
+
+
+            },100)
+            
+        }
+        })
+
+        })
+
+
+
+const updateColNum = (e)=>{
         switch(true){
             case e.classList.contains("rBtn"):
-                if(e.textContent=="+"){
-                    red+=
+                if(e.textContent=="+" && red<255){
+                    red+=1
                 }
-        }
-    })
-})
+                if(e.textContent=="-" && red>0){
+                    red-=1
+                }
+                rTxt.textContent=`Red: ${red}`;
+            break;
 
+            case e.classList.contains("gBtn"):
+                if(e.textContent=="+" && green<255){
+                    green+=1
+                }
+                if(e.textContent=="-" && green>0){
+                    green-=1
+                }
+                 gTxt.textContent=`green: ${green}`;
+            break;
+
+            case e.classList.contains("bBtn"):
+                if(e.textContent=="+" && blue<255){
+                    blue+=1
+                }
+                if(e.textContent=="-" && blue>0){
+                    blue-=1
+                }
+                bTxt.textContent=`Blue: ${blue}`;
+            break;
+
+        }
+
+        ctx.fillStyle = `rgb(${red},${green},${blue})`;
+        colourDisplay.style.backgroundColor = `rgb(${red},${green},${blue})`;
+  
+}
