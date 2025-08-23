@@ -99,6 +99,26 @@ body,html{
     justify-self: center;
 }
 
+#colourSquares{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 2vw;
+    justify-content: center;
+  
+}
+
+.colSquare{
+    width: 15vw;
+    height: 15vw;
+    margin-bottom: 1vw;
+}
+
+.colSquare:hover{
+    border: 1vw solid rgb(5,5,5);
+    box-shadow: 1vw 1vw 1vw rgb(5,5,5);
+}
+
 .cBtnDiv{
     display: flex;
     width: 90vw;
@@ -130,7 +150,7 @@ body,html{
 
 #colourDisplay{
     width: 10vw;
-    height: 10vh;
+    height: 10vw;
     background-color: rgb(0,0,0);
     justify-self: center;
 }

@@ -130,8 +130,56 @@ closeBtn.addEventListener("click",()=>{
 const sizeBtns = document.querySelectorAll(".sBtn")
 const sizeTxt = document.getElementById("sizeTxt")
 const sizeDisplay = document.getElementById("sizeDisplay")
+
 sizeBtns.forEach((e)=>{
-    e.addEventListener("click",()=>{
+    e.addEventListener("mousedown",()=>{
+        let sizePressed = true
+     
+                 updateSize(e)
+
+       
+    
+    e.addEventListener("mouseup",()=>{
+        
+            sizePressed=false
+            clearInterval(changeSize)
+        })
+        
+        if(sizePressed){
+            var changeSize = setInterval(()=>{
+                updateSize(e)
+
+
+            },100)
+            
+        }
+        })
+
+        })
+
+sizeBtns.forEach((e)=>{
+    e.addEventListener("touchstart",()=>{
+        let sizePressed = true
+                 updateSize(e)
+      
+    e.addEventListener("touchend",()=>{
+            sizePressed=false
+             updateSize(e)
+            clearInterval(changeSize)
+        })
+        
+        if(sizePressed){
+            var changeSize = setInterval(()=>{
+                updateSize(e)
+            },100)
+            
+        }
+        })
+
+        })
+
+
+const updateSize = (e)=>{
     if(e.textContent=="+"){
         size+=1
 
@@ -141,12 +189,47 @@ sizeBtns.forEach((e)=>{
     sizeTxt.textContent=`Size: ${size}`;
     sizeDisplay.style.width = `${size}px`;
     sizeDisplay.style.height = `${size}px`;
-    })
-
-})
-
+}
 
 // Colour changing
+
+const colSquares = document.querySelectorAll(".colSquare")
+colSquares.forEach((e)=>{
+    e.style.backgroundColor = `rgb${e.textContent}`;
+    e.style.fontSize = "0px"
+    
+    e.addEventListener("click",()=>{
+        colSquareFun(e.textContent)
+    })
+    
+})
+
+const colSquareFun = (colourText)=>{
+
+    let parsedText = colourText.split(",")
+    console.log(parsedText)
+
+    let r = parsedText[0].split("(")
+    r = parseInt(r[1])
+    
+    let g = parsedText[1]
+    g = parseInt(g)
+    
+    let b = parsedText[2].split(")")
+    b = parseInt(b)
+    
+    red = r
+    green = g
+    blue = b
+
+            ctx.fillStyle = `rgb(${red},${green},${blue})`;
+        colourDisplay.style.backgroundColor = `rgb(${red},${green},${blue})`;
+
+        rTxt.textContent=`Red: ${red}`;
+        gTxt.textContent=`green: ${green}`;
+        bTxt.textContent=`Blue: ${blue}`;
+}
+
 
 const colBtns = document.querySelectorAll(".colBtn")
 const colourDisplay = document.getElementById("colourDisplay")
@@ -163,7 +246,7 @@ colBtns.forEach((e)=>{
         console.log()
        
     
-                        e.addEventListener("mouseup",()=>{
+    e.addEventListener("mouseup",()=>{
             console.log("mouseup")
             colPressed=false
             clearInterval(addCol)
