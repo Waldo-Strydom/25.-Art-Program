@@ -115,16 +115,21 @@ openBtn.addEventListener("click",()=>{
     
 })
 
+
+
 const closeBtn = document.getElementById("backArrow")
 closeBtn.addEventListener("click",()=>{
+closeFun()
+    
+})
+
+const closeFun = ()=>{
     if(controlDiv.classList.contains("open")){
         controlDiv.classList.replace("open","close")
     }else{
         controlDiv.classList.add("close")
     }
-    
-})
-
+}
 
 // Size control
 const sizeBtns = document.querySelectorAll(".sBtn")
@@ -328,3 +333,33 @@ const updateColNum = (e)=>{
         colourDisplay.style.backgroundColor = `rgb(${red},${green},${blue})`;
   
 }
+
+
+
+// Clear canvas
+
+const clearBtn = document.getElementById("clearCanvasBtn")
+clearBtn.addEventListener("click", ()=>{
+    ctx.fillStyle = `rgb(250,250,250)`;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = `rgb(${red},${green},${blue})`;
+    closeFun()
+
+})
+
+// Eraser
+const eraserBtn = document.getElementById("eraserBtn")
+eraserBtn.addEventListener("click", ()=>{
+
+    red = 250
+    green = 250
+    blue = 250
+
+        ctx.fillStyle = `rgb(${red},${green},${blue})`;
+        colourDisplay.style.backgroundColor = `rgb(${red},${green},${blue})`;
+    
+        rTxt.textContent=`Red: ${red}`;
+        gTxt.textContent=`green: ${green}`;
+        bTxt.textContent=`Blue: ${blue}`;
+
+})
