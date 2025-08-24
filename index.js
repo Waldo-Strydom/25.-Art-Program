@@ -165,11 +165,11 @@ sizeBtns.forEach((e)=>{
 sizeBtns.forEach((e)=>{
     e.addEventListener("touchstart",()=>{
         let sizePressed = true
-                 updateSize(e)
+  
       
     e.addEventListener("touchend",()=>{
             sizePressed=false
-             updateSize(e)
+ 
             clearInterval(changeSize)
         })
         
@@ -246,13 +246,13 @@ const bTxt = document.getElementById("bTxt")
 colBtns.forEach((e)=>{
     e.addEventListener("mousedown",()=>{
         let colPressed = true
-        console.log("mouseDown")
+
                  updateColNum(e)
-        console.log()
+
        
     
     e.addEventListener("mouseup",()=>{
-            console.log("mouseup")
+
             colPressed=false
             clearInterval(addCol)
         })
@@ -272,13 +272,11 @@ colBtns.forEach((e)=>{
 colBtns.forEach((e)=>{
     e.addEventListener("touchstart",()=>{
         let colPressed = true
-        console.log("mouseDown")
-                 updateColNum(e)
-        console.log()
+
        
     
     e.addEventListener("touchend",()=>{
-            console.log("mouseup")
+      
             colPressed=false
             clearInterval(addCol)
         })
